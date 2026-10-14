@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { Button, Container, Eyebrow } from "./ui";
+
+export function PageHero({ eyebrow, title, description, breadcrumbs, cta }: { eyebrow: string; title: string; description: string; breadcrumbs?: { label: string; href?: string }[]; cta?: { label: string; href: string } }) {
+  return <section className="grid-pattern relative overflow-hidden bg-ink py-14 text-white sm:py-20 lg:py-24"><Container className="relative">{breadcrumbs && <nav aria-label="Breadcrumb" className="mb-12"><ol className="flex flex-wrap items-center gap-2 text-xs text-white/45"><li><Link href="/" className="hover:text-brand">Home</Link></li>{breadcrumbs.map(item => <li key={item.label} className="flex items-center gap-2"><span aria-hidden="true">/</span>{item.href ? <Link href={item.href} className="hover:text-brand">{item.label}</Link> : <span aria-current="page" className="text-white/75">{item.label}</span>}</li>)}</ol></nav>}<Eyebrow light>{eyebrow}</Eyebrow><h1 className="max-w-4xl font-heading text-[42px] font-semibold leading-[1.07] tracking-[-0.055em] sm:text-6xl lg:text-[72px]">{title}</h1><p className="mt-7 max-w-2xl text-base leading-7 text-white/60 sm:text-lg sm:leading-8">{description}</p>{cta && <Button className="mt-9" href={cta.href}>{cta.label}</Button>}<div className="mt-12 h-px w-16 bg-brand" /></Container></section>;
+}

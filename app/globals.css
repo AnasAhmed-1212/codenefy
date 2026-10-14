@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #79ff03;
+  --color-ink: #0b0c0b;
+  --color-paper: #f5f6f3;
+  --color-muted: #60655e;
+  --color-line: #e3e6e0;
+  --font-sans: "Inter", Arial, sans-serif;
+  --font-heading: "Space Grotesk", Arial, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, monospace;
+}
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { background: white; color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--color-brand); color: black; }
+button, summary, a { -webkit-tap-highlight-color: transparent; }
+button:not(:disabled), summary { cursor: pointer; }
+:focus-visible { outline: 2px solid #4c9900; outline-offset: 5px; }
+.grid-pattern { background-image: linear-gradient(#ffffff04 1px, transparent 1px), linear-gradient(90deg, #ffffff04 1px, transparent 1px); background-size: 56px 56px; }
+summary::-webkit-details-marker { display: none; }
+.diagram-float { animation: diagram-float 7s ease-in-out infinite; }
+@keyframes diagram-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
